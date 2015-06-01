@@ -15,7 +15,8 @@ directory "/opt/blog/blindnotdumb"
 
 
 cookbook_file "blindnotdumbsite" do
-  path "#{node['nginx']['dir']}/sites-available"
+  #  path "#{node['nginx']['dir']}/sites-available"
+  path "/etc/nginx/sites-available/blindnotdumbsite"
   action :create_if_missing
 end
 
@@ -30,6 +31,6 @@ git "/tmp/blindnotdumb" do
   action :sync
 end
 
-shell_out("cp -r /tmp/blindnotdumb/content /opt/blog/blindnotdumb")
+shell_out!("cp -r /tmp/blindnotdumb/content /opt/blog/blindnotdumb")
 
 
