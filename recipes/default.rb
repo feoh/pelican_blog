@@ -5,23 +5,19 @@
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
 include_recipe "apt"
-include_recipe "git"
 include_recipe "nginx"
-include_recipe "python::pip"
 
 directory "/opt"
 directory "/opt/blog"
 directory "/opt/blog/blindnotdumb"
 
+package "git"
 
 cookbook_file "blindnotdumbsite" do
-  #  path "#{node['nginx']['dir']}/sites-available"
   path "/etc/nginx/sites-available/blindnotdumbsite"
   action :create_if_missing
 end
 
-
-python_pip "pelican"
 
 nginx_site "blindnotdumbsite"
 
@@ -31,6 +27,6 @@ git "/tmp/blindnotdumb" do
   action :sync
 end
 
-shell_out!("cp -r /tmp/blindnotdumb/content /opt/blog/blindnotdumb")
+shell_out!("cp -r /tmp/blindnotdumb/content/* /opt/blog/blindnotdumb")
 
 
