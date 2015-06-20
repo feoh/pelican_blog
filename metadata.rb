@@ -7,7 +7,6 @@ long_description 'Installs/Configures pelican_blog'
 version          '0.1.11'
 
 depends "apt"
-depends "git"
 depends "nginx"
 depends "python"
 
