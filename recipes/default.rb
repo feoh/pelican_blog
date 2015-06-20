@@ -36,7 +36,7 @@ nginx_site "blindnotdumbsite"
 
 git "/tmp/blindnotdumb" do
   repository "https://github.com/feoh/blindnotdumb.git"
-  enable_submodules "true"
+  enable_submodules true
   revision "master"
   action :sync
   notifies :run, "execute[publish_site]"
