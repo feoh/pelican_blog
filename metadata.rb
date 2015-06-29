@@ -4,10 +4,11 @@ maintainer_email 'you@example.com'
 license          'all_rights'
 description      'Installs/Configures pelican_blog'
 long_description 'Installs/Configures pelican_blog'
-version          '0.1.11'
+version          '0.1.16'
 
 depends "apt"
 depends "nginx"
 depends "python"
+depends "selinux"
 
 

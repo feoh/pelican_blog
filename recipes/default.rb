@@ -4,6 +4,11 @@
 #
 # Copyright (c) 2015 The Authors, All Rights Reserved.
 
+# Required for SELinux
+package "policycoreutils"
+package "policycoreutils-python"
+package "selinux-policy-targeted"
+
 include_recipe "python"
 include_recipe "nginx"
 
@@ -14,7 +19,6 @@ python_pip "pelican"
 bash "clean_house" do
   code <<-EOH
   rm -rf /tmp/blindnotdumb
-  rm -rf /opt/blog
   EOH
 end
 
