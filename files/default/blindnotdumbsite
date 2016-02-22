@@ -1,6 +1,6 @@
 server {
   listen   80;
-  server_name  www.feoh.org;
+  server_name  www.feoh.org feoh.org;
 
   access_log  /var/log/nginx/localhost.access.log;
 
