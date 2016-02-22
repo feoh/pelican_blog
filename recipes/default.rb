@@ -27,6 +27,11 @@ cookbook_file "blindnotdumbsite" do
   action :create_if_missing
 end
 
+cookbook_file "redirect.conf" do
+  path "/etc/nginx/conf.d/redirect.conf"
+  action :create_if_missing
+end
+
 
 nginx_site 'default' do
   enable false
